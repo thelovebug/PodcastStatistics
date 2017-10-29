@@ -38,13 +38,13 @@ function get_redirect_mediafile ( $filename ) {
 		$post_id         = $row->post_id;
 		$http_referrer   = $_SERVER["HTTP_REFERER"];
 		$wpdb->query( $wpdb->prepare( "
-				INSERT INTO 	bugcast_log 
+				INSERT INTO 	bugcast_log
 						(
-						remote_addr, request_uri, http_user_agent, podcast_id, 
+						remote_addr, request_uri, http_user_agent, podcast_id,
 						show_id, post_id, http_referer
-						) 
+						)
 				VALUES 		('%s', '%s', '%s', %d, %d, %d, '%s')"
-			, $remote_addr, $request_uri, $http_user_agent, $podcast_id, $show_id, $post_id, $http_request ) ); 		
+			, $remote_addr, $request_uri, $http_user_agent, $podcast_id, $show_id, $post_id, $http_request ) );
 
 		return 'https://media.blubrry.com/thebugcast/p/archive.org/download/thebugcast/' . $filename;
 		exit;
